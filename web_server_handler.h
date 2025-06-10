@@ -98,7 +98,8 @@ void handleMainPage() {
         </form>
         <div style="margin-top: 20px;">
             <small>
-                Examples: "Hello World", "CTRL+C", "CTRL+ALT+DEL", "F1", "ENTER"
+                Examples: "Hello World", "CTRL+C", "CTRL+ALT+DEL", "F1", "ENTER"<br>
+                Full list of Special Keys <a href="https://github.com/zan73/web_usb_keyboard/blob/main/keyboard_handler.h" target="_blank">here</a>
             </small>
         </div>
     </div>
