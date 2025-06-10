@@ -18,7 +18,10 @@ Configuration is handled via a `config.txt` file that contains:
 - Web authentication settings
 - Slack webhook details
 
-Upload the configuration file to your device using the [Arduino LittleFS Upload Plugin](https://github.com/earlephilhower/arduino-littlefs-upload).
+Install Arduino IDE 2.x
+- Add Raspberry PI Pico 2W as a target by adding "https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json" to "Additional boards manager URLs" list in Preferences/Settings.
+- Compile and Upload the project to your device.
+- Upload the configuration file to your device using the [Arduino LittleFS Upload Plugin](https://github.com/earlephilhower/arduino-littlefs-upload).
 
 ## Architecture Notes
 
@@ -132,4 +135,4 @@ slack_webhook=/services/YOUR/SLACK/WEBHOOK/PATH
 
 ## Debug Mode
 
-Uncomment `#define DEBUG` in main.ino to enable debug output via Serial Monitor.
+Uncomment `#define DEBUG` in web_usb_keyboard.ino to enable debug output via Serial Monitor.
