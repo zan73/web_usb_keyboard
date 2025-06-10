@@ -1,6 +1,8 @@
 # Arduino Web-based USB Keystroke Sender
 
-A secure web-based interface for remotely sending keystrokes to USB-connected devices. This project enables remote keyboard input through a simple web interface, tested and optimized for the Raspberry Pi Pico 2W.
+A secure web-based interface for remotely sending keystrokes to USB-connected devices.
+Works with MacOS FileVault (Cold boot/FileVault) login screen as a "Boot-mode" keyboard.
+This project enables remote keyboard input through a simple web interface, tested and optimized for the Raspberry Pi Pico 2W.
 
 ## Key Features
 
@@ -92,8 +94,7 @@ The implementation uses HTTP with Digest Authentication rather than HTTPS due to
 
 ## Usage
 
-1. Install Arduino IDE 2.x
-- Add Raspberry PI Pico 2W as a target by adding "https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json" to "Additional boards manager URLs" list in Preferences/Settings.
+1. Install Arduino IDE 2.x and then add Arduino-Pico via [these instructions](https://arduino-pico.readthedocs.io/en/latest/install.html)
 2. Upload the code to your Arduino-compatible device
 3. Copy `config.txt.template` to `config.txt` and update with your actual credentials
 4. Upload to your device using the [Arduino LittleFS Upload Plugin](https://github.com/earlephilhower/arduino-littlefs-upload).
