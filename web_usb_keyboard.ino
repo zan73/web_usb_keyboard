@@ -6,7 +6,6 @@
 
 #include "Adafruit_TinyUSB.h"
 #include <ArduinoOTA.h>
-#include <LEAmDNS.h>
 #include <WiFi.h>
 
 //#define DEBUG
@@ -30,6 +29,8 @@ void setup() {
   Serial.begin(115200);
   
   #ifdef DEBUG
+    //Add delay for IDE to connect to Serial
+    delay(2000);
     Serial.println("Loading configuration...");
   #endif
   
@@ -66,11 +67,9 @@ void setup() {
   // Initialize web server
   initializeWebServer();
 
-  #ifdef DEBUG
-    String pageName = getConfigValue("pagename");
-    String page = pageName.isEmpty() ? "/" : "/" + pageName;
-    Serial.printf("Open http://%s%s\n", WiFi.localIP().toString().c_str(), page.c_str());
-  #endif
+  String pageName = getConfigValue("pagename");
+  String page = pageName.isEmpty() ? "/" : "/" + pageName;
+  Serial.printf("Open http://%s%s\n", WiFi.localIP().toString().c_str(), page.c_str());
 }
 
 void loop() {

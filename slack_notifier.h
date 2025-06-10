@@ -4,6 +4,8 @@
 #include <Arduino.h>
 #include <WiFiClientSecure.h>
 
+//#define DEBUG
+
 // Function declarations
 void sendSlackNotification(const String& message, const char* webhookPath);
 

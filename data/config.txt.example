@@ -1,0 +1,13 @@
+# WiFi Configuration
+WIFI_SSID=YOUR_NETWORK_NAME
+WIFI_PASSWORD=YOUR_WIFI_PASSWORD
+
+# Web Authentication
+WEB_USER=YOUR_USERNAME
+WEB_PASS=YOUR_PASSWORD
+
+# Slack Webhook (optional)
+SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
+
+# Page Name (optional)
+pagename=web_usb_keyboard

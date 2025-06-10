@@ -5,6 +5,8 @@
 #include "Adafruit_TinyUSB.h"
 #include <map>
 
+//#define DEBUG
+
 // HID key structure
 typedef struct {
   uint8_t modifier;

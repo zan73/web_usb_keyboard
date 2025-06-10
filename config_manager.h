@@ -50,7 +50,6 @@ String getConfigValue(const String& key) {
 }
 
 void printConfiguration() {
-  #ifdef DEBUG
     for (const auto& pair : deviceConfig) {
       Serial.print("Key: '");
       Serial.print(pair.first);
@@ -58,7 +57,6 @@ void printConfiguration() {
       Serial.print(pair.second);
       Serial.println("'");
     }
-  #endif
 }
 
 #endif

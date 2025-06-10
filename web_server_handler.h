@@ -136,10 +136,6 @@ void handleKeystrokeSend() {
     // Send notification to Slack for monitoring
     sendSlackNotification("Keystrokes sent by IP: " + clientIP + " - Data: '" + keystrokeData + "'", slackWebhook.c_str());
   }
-
-  #ifdef DEBUG
-    Serial.println("Sent keystrokes: " + keystrokeData + " from IP: " + clientIP);
-  #endif
 }
 
 void initializeWebServer() {
@@ -154,12 +150,6 @@ void initializeWebServer() {
   
   // Start the web server
   webServer.begin();
-  
-  #ifdef DEBUG
-    Serial.println("Web server initialized");
-    Serial.println("Main page: " + page);
-    Serial.println("Send endpoint: /send");
-  #endif
 }
 
 void handleWebServerClient() {

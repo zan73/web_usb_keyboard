@@ -109,6 +109,9 @@ slack_webhook=/services/YOUR/SLACK/WEBHOOK/PATH
 ## Usage
 
 1. Upload the code to your Arduino-compatible device
+2. Copy `config.txt.template` to `config.txt` and update with your actual credentials
+3. Upload to your device using the LittleFS upload plugin
+
 2. Create and upload the config.txt file to LittleFS
 3. Connect the device via USB to the target computer
 4. Access the web interface at `http://[device-ip]/[pagename]`
