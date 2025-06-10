@@ -18,11 +18,6 @@ Configuration is handled via a `config.txt` file that contains:
 - Web authentication settings
 - Slack webhook details
 
-Install Arduino IDE 2.x
-- Add Raspberry PI Pico 2W as a target by adding "https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json" to "Additional boards manager URLs" list in Preferences/Settings.
-- Compile and Upload the project to your device.
-- Upload the configuration file to your device using the [Arduino LittleFS Upload Plugin](https://github.com/earlephilhower/arduino-littlefs-upload).
-
 ## Architecture Notes
 
 The implementation uses HTTP with Digest Authentication rather than HTTPS due to the processing constraints of the Pico 2W, while still providing reasonable security for the authentication process.
@@ -65,20 +60,6 @@ The implementation uses HTTP with Digest Authentication rather than HTTPS due to
    - POST endpoint for keystroke processing
 
 ## Configuration File (config.txt)
-
-Create a file named `config.txt` in the LittleFS filesystem with the following format:
-
-```
-ssid=YourWiFiSSID
-password=YourWiFiPassword
-username=admin
-userpass=yourpassword
-pagename=keyboard
-slack_webhook=/services/YOUR/SLACK/WEBHOOK/PATH
-```
-
-### Configuration Parameters
-
 - `ssid` - WiFi network name
 - `password` - WiFi network password  
 - `username` - Web interface username
@@ -111,18 +92,18 @@ slack_webhook=/services/YOUR/SLACK/WEBHOOK/PATH
 
 ## Usage
 
-1. Upload the code to your Arduino-compatible device
-2. Copy `config.txt.template` to `config.txt` and update with your actual credentials
-3. Upload to your device using the LittleFS upload plugin
-
-2. Create and upload the config.txt file to LittleFS
-3. Connect the device via USB to the target computer
-4. Access the web interface at `http://[device-ip]/[pagename]`
-5. Enter keystrokes and click "Send Keystrokes"
+1. Install Arduino IDE 2.x
+- Add Raspberry PI Pico 2W as a target by adding "https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json" to "Additional boards manager URLs" list in Preferences/Settings.
+2. Upload the code to your Arduino-compatible device
+3. Copy `config.txt.template` to `config.txt` and update with your actual credentials
+4. Upload to your device using the [Arduino LittleFS Upload Plugin](https://github.com/earlephilhower/arduino-littlefs-upload).
+5. Connect the device via USB to the target computer
+6. Access the web interface at `http://[device-ip]/[pagename]`
+7. Enter keystrokes and click "Send Keystrokes"
 
 ## Hardware Requirements
 
-- Arduino-compatible board with USB HID capability
+- Arduino-compatible board with USB HID capability (Tested on Raspberry Pi Pico 2W)
 - WiFi connectivity
 - USB connection to target computer
 
