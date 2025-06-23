@@ -7,7 +7,7 @@ username=YOUR_USERNAME
 userpass=YOUR_PASSWORD
 
 # Slack Webhook (optional)
-slack_webhook=services/YOUR/WEBHOOK/PATH
+slack_webhook=/services/YOUR/WEBHOOK/PATH
 
 # Page Name (optional)
 pagename=web_usb_keyboard
