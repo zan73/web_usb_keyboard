@@ -76,12 +76,13 @@ void loop() {
   String pageName = getConfigValue("pagename");
   String page = pageName.isEmpty() ? "/" : "/" + pageName;
   String msg = "http://" + WiFi.localIP().toString() + "/" + page + " ready";
+  String slackWebhook = getConfigValue("slack_webhook");
 
   // Check if 24 hours have passed
   if (lastExecution == 0 || millis() - lastExecution >= INTERVAL_MS) {
     lastExecution = millis();
     Serial.println(msg);
-    if(!getConfigValue("slack_webhook").isEmpty()) {
+    if(!slackWebhook.isEmpty()) {
       sendSlackNotification(msg, slackWebhook.c_str());
     }
   }
