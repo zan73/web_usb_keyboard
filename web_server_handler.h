@@ -45,7 +45,11 @@ void handleMainPage() {
     
     if (!slackWebhook.isEmpty()) {
       // Send notification to Slack for monitoring
-      sendSlackNotification("Authentication failed for IP: " + clientIP + " on page " + page, slackWebhook.c_str());
+      sendSlackNotification(
+        (getFailedAttemptCount(clientIP)
+          ? "Authentication failed for IP: "
+          : "Authentication prompt shown for IP:"
+        ) + clientIP + " on page " + page, slackWebhook.c_str());
     }
 
     // Check if we should block this client

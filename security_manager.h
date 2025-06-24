@@ -44,7 +44,7 @@ void recordFailedAttempt(const String& clientIP) {
   if (clientFailedAttempts.count(clientIP)) {
     clientFailedAttempts[clientIP]++;
   } else {
-    clientFailedAttempts[clientIP] = 1;
+    clientFailedAttempts[clientIP] = 0;
   }
 }
 
