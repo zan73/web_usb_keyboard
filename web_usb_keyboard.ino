@@ -8,6 +8,8 @@
 #include <ArduinoOTA.h>
 #include <WiFi.h>
 
+const unsigned long INTERVAL_MS = 86400000UL; // 24 hours in milliseconds
+
 //#define DEBUG
 
 void setup() {
@@ -67,12 +69,23 @@ void setup() {
   // Initialize web server
   initializeWebServer();
 
-  String pageName = getConfigValue("pagename");
-  String page = pageName.isEmpty() ? "/" : "/" + pageName;
-  Serial.printf("Open http://%s%s\n", WiFi.localIP().toString().c_str(), page.c_str());
 }
 
 void loop() {
+  static unsigned long lastExecution = 0;
+  String pageName = getConfigValue("pagename");
+  String page = pageName.isEmpty() ? "/" : "/" + pageName;
+  String msg = "http://" + WiFi.localIP().toString() + "/" + page + " ready";
+
+  // Check if 24 hours have passed
+  if (lastExecution == 0 || millis() - lastExecution >= INTERVAL_MS) {
+    lastExecution = millis();
+    Serial.println(msg);
+    if(!getConfigValue("slack_webhook").isEmpty()) {
+      sendSlackNotification(msg, slackWebhook.c_str());
+    }
+  }
+
   #ifdef TINYUSB_NEED_POLLING_TASK
     // Manual call tud_task since it isn't called by Core's background
     TinyUSBDevice.task();

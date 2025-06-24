@@ -95,12 +95,13 @@ The implementation uses HTTP with Digest Authentication rather than HTTPS due to
 ## Usage
 
 1. Install Arduino IDE 2.x and then add Arduino-Pico via [these instructions](https://arduino-pico.readthedocs.io/en/latest/install.html)
-2. Upload the code to your Arduino-compatible device
-3. Copy `config.txt.template` to `config.txt` and update with your actual credentials
-4. Upload to your device using the [Arduino LittleFS Upload Plugin](https://github.com/earlephilhower/arduino-littlefs-upload).
-5. Connect the device via USB to the target computer
-6. Access the web interface at `http://[device-ip]/[pagename]`
-7. Enter keystrokes and click "Send Keystrokes"
+2. From the Tools menu, select USB Stack: Adafruit TinyUSB and Flash Size: that allows for some Filesystem storage (minimum is FS: 64KB). Leave Wifi Region set to Worldwide.
+3. Click the Upload button to upload the code to your Arduino-compatible device
+4. Copy `config.txt.template` to `config.txt` and update with your actual credentials
+5. Upload to your device using the Arduino LittleFS Upload Plugin. Installation and upload steps are on [this page](https://github.com/earlephilhower/arduino-littlefs-upload).
+6. Connect the device via USB to the target computer
+7. Access the web interface at `http://[device-ip]/[pagename]`
+8. Enter keystrokes and click "Send Keystrokes"
 
 ## Hardware Requirements
 
